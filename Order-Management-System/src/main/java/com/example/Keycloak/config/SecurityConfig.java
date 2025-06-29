@@ -1,6 +1,5 @@
 package com.example.Keycloak.config;
 
-import com.example.Keycloak.converter.CustomJwtConverter;
 import io.jsonwebtoken.io.Decoders;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
