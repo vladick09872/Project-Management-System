@@ -29,5 +29,4 @@ public class CustomJwtConverter implements Converter<Jwt, Collection<GrantedAuth
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
-
 }

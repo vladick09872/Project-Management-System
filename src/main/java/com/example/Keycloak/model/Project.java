@@ -2,32 +2,34 @@ package com.example.Keycloak.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+@Builder
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "phone")
-    private String phone;
+    @OneToMany(mappedBy = "project")
+    private List<Task> tasks;
 
-    @OneToOne(mappedBy = "customer")
-    private Purchase purchase;
-
-    @OneToOne(mappedBy = "customer")
-    private TestDriveRequest testDriveRequest;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
 }

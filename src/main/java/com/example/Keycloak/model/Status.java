@@ -1,7 +1,7 @@
 package com.example.Keycloak.model;
 
 public enum Status {
-    PENDING,
-    APPROVED,
-    DECLINED
+    NEW,
+    IN_PROGRESS,
+    DONE
 }
